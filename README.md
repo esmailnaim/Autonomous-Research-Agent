@@ -7,6 +7,8 @@
 
 An autonomous research agent powered by DeepSeek LLM and Tavily search, built with LangGraph.
 
+> **Note**: This agent helps automate research tasks by breaking down complex queries into focused searches and synthesizing comprehensive reports.
+
 ## Features
 
 - **Intelligent Query Generation**: Breaks down research topics into focused search queries
